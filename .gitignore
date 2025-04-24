@@ -1,0 +1,94 @@
+## Visual Studio Generated Files
+.vs/
+ipch/
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.opensdf
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+*.vc.db
+*.ipch
+*.ncb
+*.sbr
+*.tlb
+*.tlh
+*.tli
+*.tmp
+*.vsmdi
+*_i.c
+*_p.c
+*.idb
+*.obj
+*.ilk
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.pdbx
+*.vsp
+*.vssscc
+.builds
+
+## Build Results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+## Visual C++ Cache Files
+*.aps
+*.opensdf
+*.cachefile
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+
+## Project File Backups
+*~
+*.bak
+*.swp
+*.[Bb]ak
+*.[Cc]ache
+
+## Log files
+*.log
+*.tlog
+*.lastbuildstate
+*.unsuccessfulbuild
+
+## Build-related files
+*.exe
+*.dll
+*.lib
+*.a
+*.pdb
+*.exp
+*.res
+*.manifest
+*.application
+*.iobj
+*.ipdb
+*.map
+*.filters
+
+## Environment-specific configuration files
+.env
+
+## Other common files to ignore
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## visual studio 
+*.sln
+*.vcxproj
