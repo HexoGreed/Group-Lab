@@ -129,7 +129,7 @@ void Board::printBoard() {
         std::cout << "-";
     }
     std::cout << "+" << std::endl;
-}
+} 
 
 void Board::placeMines() {
     std::vector<std::pair<int,int>> positions;

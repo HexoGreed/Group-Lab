@@ -75,7 +75,7 @@ int main() {
             }
         }
     }
-
+   
     board.printBoard();
     if (board.lostGame()) std::cout << "BOOM! You hit a mine.\n";
     else std::cout << "Congrats! You cleared the field.\n";
