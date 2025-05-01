@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 struct Cell {
 	int row;
@@ -8,24 +7,17 @@ struct Cell {
 	bool isMine;
 	bool isRevealed;
 	bool isFlagged;
+
 };
 
-class Board
-{
-public: 
+class Board {
+public:
 	Board();
 	~Board();
 	void initialize(int rows, int cols, int mines);
 	void printBoard();
-
-	void revealCell(int row, int col);
-	void toggleFlag(int row, int col);
-
-	bool lostGame() const;
-	bool wonGame() const;
-	
-	void resetGame();
-
+	void placeMines();
+	void CalcMinePLacement();
 
 	void revealCell(int row, int col);
 	void toggleFlag(int row, int col);
@@ -43,4 +35,7 @@ private:
 	bool lost;
 	bool won;
 	Cell** cells;
+	void PLACE_MINE_INDIVIDUALLY(int row, int col);  // helper method
+	int countAdjacentMines(int row, int col) const;  // Helper method
+
 };
