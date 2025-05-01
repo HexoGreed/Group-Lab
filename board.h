@@ -27,6 +27,15 @@ public:
 	void resetGame();
 
 
+	void revealCell(int row, int col);
+	void toggleFlag(int row, int col);
+
+	bool lostGame() const;
+	bool wonGame() const;
+	
+	void resetGame();
+
+
 private:
 	int rows;
 	int cols;

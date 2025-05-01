@@ -3,7 +3,11 @@
 #include <ctime>
 #include <vector>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+#include <algorithm>
+>>>>>>> Stashed changes
 =======
 #include <algorithm>
 >>>>>>> Stashed changes
@@ -37,6 +41,7 @@ void Board::initialize(int r, int c, int m) {
 	mines = m;
     lost = won = false;
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 	cells = new Cell * [rows];
 	for (int i = 0; i < rows; i++) {
@@ -77,6 +82,104 @@ void Board::printBoard() {
 		}
 		std::cout << std::endl;
 	}
+=======
+    cells = new Cell*[rows];
+    for (int i = 0; i < rows; ++i) {
+        cells[i] = new Cell[cols];
+        for (int j = 0; j < cols; ++j) {
+            cells[i][j] = { i, j, ' ', false, false, false };
+        }
+    }
+
+    placeMines();
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            if (!cells[i][j].isMine) {
+                int cnt = countAdjacentMines(i, j);
+                cells[i][j].value = (cnt > 0 ? char('0' + cnt) : ' ');
+            }
+        }
+    }
+}
+
+void Board::printBoard() {
+    // Print column header
+    std::cout << "    ";
+    for (int col = 0; col < cols; ++col) {
+        if (col < 9)
+            std::cout << "\033[1;36m" << (col + 1) << "\033[0m  "; // Two spaces for single-digit columns
+        else
+            std::cout << "\033[1;36m" << (col + 1) << "\033[0m "; // One space for double-digit columns
+    }
+    std::cout << std::endl;
+
+    // Calculate total width needed for the separator line
+    int totalWidth = 0;
+    for (int col = 0; col < cols; ++col) {
+        if (col < 9)
+            totalWidth += 3; // 3 chars for single-digit (e.g., "1  ")
+        else
+            totalWidth += 3; // 3 chars for double-digit (e.g., "10 ")
+    }
+
+    // Print separator line with exact width
+    std::cout << "   +";
+    for (int i = 0; i < totalWidth; ++i) {
+        std::cout << "-";
+    }
+    std::cout << "+" << std::endl;
+
+    for (int row = 0; row < rows; ++row) {
+        // Print row numbers with color
+        std::cout << " \033[1;36m" << row + 1 << "\033[0m";
+        if (row + 1 < 10) std::cout << " ";
+        std::cout << "| ";
+
+        for (int col = 0; col < cols; ++col) {
+            // Print the cell content
+            if (cells[row][col].isRevealed) {
+                if (cells[row][col].value == ' ')
+                    std::cout << " ";
+                else if (cells[row][col].value == '*')
+                    std::cout << "\033[1;31m*\033[0m";
+                else {
+                    int num = cells[row][col].value - '0';
+                    switch (num) {
+                    case 1: std::cout << "\033[1;34m"; break; // Blue
+                    case 2: std::cout << "\033[1;32m"; break; // Green
+                    case 3: std::cout << "\033[1;31m"; break; // Red
+                    case 4: std::cout << "\033[1;35m"; break; // Purple
+                    default: std::cout << "\033[1;33m"; break; // Yellow
+                    }
+                    std::cout << cells[row][col].value << "\033[0m";
+                }
+            }
+            else if (cells[row][col].isFlagged) {
+                std::cout << "\033[1;31mF\033[0m";
+            }
+            else {
+                std::cout << "\033[1;30m#\033[0m";
+            }
+
+            // Add CONSISTENT spacing between cells
+            if (col < cols - 1) {
+                if (col < 9)
+                    std::cout << "  "; // Two spaces for all cells in columns 1-9
+                else
+                    std::cout << "  "; // Also two spaces for columns 10+ (consistent)
+            }
+        }
+        std::cout << "|" << std::endl;
+    }
+    
+    // Bottom border with exact width
+    std::cout << "   +";
+    for (int i = 0; i < totalWidth; ++i) {
+        std::cout << "-";
+    }
+    std::cout << "+" << std::endl;
+>>>>>>> Stashed changes
 }
 =======
     cells = new Cell*[rows];
@@ -295,5 +398,9 @@ void Board::resetGame() {
 	cells = nullptr;
 	lost = false;
 	won = false;
+<<<<<<< Updated upstream
+}	
+>>>>>>> Stashed changes
+=======
 }	
 >>>>>>> Stashed changes
